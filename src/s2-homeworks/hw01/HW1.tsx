@@ -39,8 +39,9 @@ export const message0: MessageType = {
         name: 'I am Vasia',  // можно менять
     },
     message: {
-        text: 'some textsome textsome textsome textsome textsome textsome text', // можно менять
-        time:"date 22"//(new Date().toTimeString()), // можно менять
+        text: 'some textsome textsome textsome textsome textsome text', // можно менять
+        //time:"date 22"//(new Date().toTimeString()), // можно менять
+        time: new Date().toTimeString().slice(0, 5)
     },
 }
 export const friendMessage0: MessageType = {
