@@ -70,6 +70,8 @@ const Stand = () => {
                         xType={'secondary'}
                     >
                         secondary
+                        {/* Дополнительная */}
+                        
                     </SuperButton>
                 </div>
             </div>
