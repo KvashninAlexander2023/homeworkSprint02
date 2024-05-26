@@ -1,24 +1,77 @@
+/* .sidebar {
+position: fixed;
+width: 317px;
+height: 100%;
+left: 0;
+top: 0;
+bottom: 0;
+background-color: #fff;
+z-index: 66666;
+display: none;
+} хотел сделать  через display none*/
+
 .sidebar {
+  width: 317px;
+  height: 100%;
+  left: -317px; /* Изначально скрыто за левой границей экрана */
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 66666;
+  position: fixed;
+  transition: left 0.4s; /* Плавное движение за 0.3 секунды */
 }
 
 .sidebar.open {
+  left: 0;
 }
 
 .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  z-index: 6666;
 }
 
 .nav {
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-top: 63px;
+  margin-left: 70px;
+  gap: 45px;
 }
 
 .nav a {
+  color: #000;
+  text-decoration: none;
 }
 
 .nav a:hover {
+  color: #58acff;
+}
+.nav a:focus {
+  color: #3d6b99;
 }
 
 .nav a.active {
+  color: #0059b2;
+  text-decoration: underline;
 }
+
 .close {
+  width: 24px;
+  height: 24px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  cursor: pointer;
 }
 
 .close img {

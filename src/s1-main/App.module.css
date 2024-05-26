@@ -1,6 +1,7 @@
 .App {
     --header_height: 60px;
     font-family: Montserrat, sans-serif;
+    margin-top: 100px;
 }
 
 .hw {
@@ -19,6 +20,7 @@
 }
 
 .hwTitle {
- text-align: center;
+ font-size: 22px;
  font-weight: 700;
+ text-align: center;
 }
