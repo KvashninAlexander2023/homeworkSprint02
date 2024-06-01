@@ -12,13 +12,18 @@ import s from './HW6.module.css'
  */
 
 const HW6 = () => {
+
+    const localStorageKey = 'hw6-editable-span-value'
+
     const [value, setValue] = useState<string>('')
 
     const save = () => {
-        saveState<string>('hw6-editable-span-value', value)
+        saveState<string>(localStorageKey, value)
     }
     const restore = () => {
         // делают студенты
+        const storegeValue = localStorage.getItem(localStorageKey);
+        setValue(storegeValue ? JSON.parse(storegeValue) : "");
 
     }
 
