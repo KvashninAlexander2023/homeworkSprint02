@@ -1,5 +1,18 @@
+
+.hw {
+  height: 375px;
+}
+
+
 .buttonsContainer {
+  display: flex;
+  gap: 24px;
+  margin: 24px;
+
 }
 
 .editableSpanContainer {
+ 
+  margin-top: 32px;
+  margin-left: 24px;
 }
