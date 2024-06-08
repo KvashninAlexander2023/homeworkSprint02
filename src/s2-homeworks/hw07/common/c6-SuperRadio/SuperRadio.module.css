@@ -1,15 +1,35 @@
 .radio {
+  margin-right: 10px;
+  width: 20px;
+  cursor: pointer;
+  accent-color: black;
 }
 
 .radio::before {
+  /* content: url("./../c5-SuperSelect/chevron-down.svg");
+  display: inline-block;
+  width: 28px; */
 }
-
 
 .radio:checked::before {
 }
 
 .label {
+  display: flex;
+  cursor: pointer;
 }
 
 .options {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
+
+/* .span::before{ */
+/* content: ""; Важно для отображения псевдоэлемента */
+/* display: inline-block; */
+/* background-image: url("./../c5-SuperSelect/chevron-down.svg"); */
+/* background-size: cover;  */
+/* background-repeat: no-repeat; */
+/* background-position: center; */
+/* } */
