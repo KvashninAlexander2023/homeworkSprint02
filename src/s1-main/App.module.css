@@ -5,13 +5,16 @@
 }
 
 .hw {
- max-width: 80%;   
+
+ max-width: 80%;  
+ min-height: 300px; 
  /* width: 100%; */
  border-top: 2px solid #6b6868;
  border-bottom: 2px solid #6b6868;
  margin: 20px auto;
  padding: 20px 0;
 }
+
 
 .hw div{
     /* display: flex;
