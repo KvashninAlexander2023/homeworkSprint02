@@ -2,7 +2,15 @@
 }
 
 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.wrapper span {
+
 }
 
+
 .number {
+  width: 20px;
 }
