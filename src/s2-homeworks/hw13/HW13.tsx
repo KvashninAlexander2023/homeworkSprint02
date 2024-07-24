@@ -44,7 +44,7 @@ const HW13 = () => {
             .catch((e) => {
                 console.log(e);
                 if (e.response.status === 500) {
-                    console.log(e.response.status);
+                    // console.log(e.response.status);
                     setCode('Ошибка 500!')
                     setImage(error500)
                     setText(e.response.data.errorText)
