@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW14.module.css'
 import axios from 'axios'
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
-import {useSearchParams} from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 /*
 * 1 - дописать функцию onChangeTextCallback в SuperDebouncedInput
@@ -12,13 +12,18 @@ import {useSearchParams} from 'react-router-dom'
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW14 в HW5/pages/JuniorPlus
 * */
+type TechsType = {
+    techs: string[]
+}
+
 
 const getTechs = (find: string) => {
     return axios
-        .get<{ techs: string[] }>(
+        .get<TechsType>(
             'https://samurai.it-incubator.io/api/3.0/homework/test2',
-            {params: {find}}
+            { params: { find } }
         )
+        // .then(response => response.data.techs)
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
         })
@@ -34,18 +39,16 @@ const HW14 = () => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                res && setTechs(res.data.techs)
+                setLoading(false)
             })
     }
 
     const onChangeText = (value: string) => {
+        // console.log("onChangeText: ", value);
         setFind(value)
         // делает студент
-
+        setSearchParams({ find: value })
         // добавить/заменить значение в квери урла
         // setSearchParams(
 
@@ -54,6 +57,8 @@ const HW14 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
+        console.log(params);
+
         sendQuery(params.find || '')
         setFind(params.find || '')
     }, [])
@@ -77,7 +82,7 @@ const HW14 = () => {
                 />
 
                 <div id={'hw14-loading'} className={s.loading}>
-                    {isLoading ? '...ищем' : <br/>}
+                    {isLoading ? '...ищем' : <br />}
                 </div>
 
                 {mappedTechs}
