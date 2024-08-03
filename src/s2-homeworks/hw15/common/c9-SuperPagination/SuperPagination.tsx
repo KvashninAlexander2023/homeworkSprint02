@@ -16,13 +16,26 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
+    const lastPage = Math.round(totalCount/itemsCountForPage) // пишет студент // вычислить количество страниц
 
     const onChangeCallback = (event: any, page: number) => {
+        onChange(page, itemsCountForPage)
+        // console.log("page: ", page);
         // пишет студент
     }
 
-    const onChangeSelect = (event: any) => {
+    // const onChangeSelect = (event: any) => {
+    const onChangeSelect = (itemsCountForPage: number) => {
+        console.log(page, lastPage );
+        
+        if(page >= lastPage){
+            console.log("nene");
+            
+            onChange(1, itemsCountForPage)
+        }else{
+            onChange(page, itemsCountForPage)
+        }
+        // console.log("onChangeSelect event: ", event);
         // пишет студент
     }
 
@@ -30,7 +43,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         <div className={s.pagination}>
             <Pagination
                 id={id + '-pagination'}
-                sx={{
+                sx={{ 
                     // стили для Pagination // пишет студент
                 }}
                 page={page}
@@ -39,7 +52,6 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                 hideNextButton
                 hidePrevButton
             />
-
             <span className={s.text1}>
                 показать
             </span>
@@ -52,7 +64,8 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                     {id: 7, value: 7},
                     {id: 10, value: 10},
                 ]}
-                onChange={onChangeSelect}
+                // onChange={onChangeSelect}
+                onChangeOption={onChangeSelect}
             />
 
             <span className={s.text2}>
